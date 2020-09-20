@@ -19,6 +19,7 @@ stats <- function(d){
       AGW <- length(x$FTR[x$FTR=="A"])
       AGD <- length(x$FTR[x$FTR=="D"])
       
+      
       df <- rbind(df, c(s, t, GP, HGGS, HGGC, HGW, HGD, AGGS, AGGC, AGW, AGD))
     }
   }
