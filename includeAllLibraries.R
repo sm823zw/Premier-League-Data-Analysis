@@ -3,4 +3,5 @@ includeAllLibraries <- function(){
   library(dplyr)
   library(reshape)
   library(plyr)
+  library(ggrepel)
 }
