@@ -4,9 +4,13 @@ teamSeasonClustering <- function(stats){
   x <- rbind(x, stats)
   x$TeamSeason <- paste(x$team, x$season)
   x$GP <- as.numeric(x$GP)
+<<<<<<< HEAD
   #x <- subset(x, GP!=0 & season %in% c("2017-18", "2018-19", "2019-20"))
   x <- subset(x, GP==38 & as.numeric(AGGS)>30 & as.numeric(HGGC)<15)
   
+=======
+  x <- subset(x, GP!=0 & season %in% c("2014-15"))
+>>>>>>> afefefe733f633132d17915bfccc0a991615ea24
   x$HGGS <- round(as.numeric(x$HGGS)/x$GP, 3)
   x$HGGC <- round(as.numeric(x$HGGC)/x$GP, 3)
   x$HGGS <- round(as.numeric(x$HGGS)/x$GP, 3)
@@ -17,6 +21,7 @@ teamSeasonClustering <- function(stats){
   x$AGW <- round(as.numeric(x$AGW)/x$GP, 3)
   x$AGD <- round(as.numeric(x$AGD)/x$GP, 3)
   
+<<<<<<< HEAD
   y <- x[4:11]
   
   #y <- x[c("AGGS", "AGGC")]
@@ -25,4 +30,14 @@ teamSeasonClustering <- function(stats){
   x$cluster <- k$cluster
   
   ggplot(x) + geom_point(aes(AGGS, HGGC)) + geom_text_repel(aes(AGGS, HGGC, label=TeamSeason), color=x$cluster, size=3, vjust=-0.5)
+=======
+  #y <- x[4:11]
+  
+  y <- x[c("AGGS", "AGGC", "AGW")]
+  
+  k <- kmeans(y, centers=5)
+  x$cluster <- k$cluster
+  
+  ggplot(x) + geom_point(aes(AGGS, AGGC)) + geom_text(aes(AGGS, AGGC, label=TeamSeason), color=x$cluster, size=3, vjust=-0.5)
+>>>>>>> afefefe733f633132d17915bfccc0a991615ea24
 }
